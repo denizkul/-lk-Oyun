@@ -185,16 +185,44 @@ class BizimOyunumuz:
             self.KalpY = 70
 
             if self.Tus[pygame.K_a]:
-                self.Oyuncu.OyuncuX -= 5
+                if self.Tus[pygame.K_w]:
+                    self.Oyuncu.OyuncuX -= 5
+                    self.Oyuncu.OyuncuY -= 5
+                elif self.Tus[pygame.K_s]:
+                    self.Oyuncu.OyuncuX -= 5
+                    self.Oyuncu.OyuncuY += 5
+                else:
+                    self.Oyuncu.OyuncuX -= 5
 
             elif self.Tus[pygame.K_d]:
-                self.Oyuncu.OyuncuX += 5
+                if self.Tus[pygame.K_w]:
+                    self.Oyuncu.OyuncuY -= 5
+                    self.Oyuncu.OyuncuX += 5
+                elif self.Tus[pygame.K_s]:
+                    self.Oyuncu.OyuncuY += 5
+                    self.Oyuncu.OyuncuX += 5
+                else:
+                    self.Oyuncu.OyuncuX += 5
 
             elif self.Tus[pygame.K_s]:
-                self.Oyuncu.OyuncuY += 5
+                if self.Tus[pygame.K_d]:
+                    self.Oyuncu.OyuncuY += 5
+                    self.Oyuncu.OyuncuX += 5
+                elif self.Tus[pygame.K_a]:
+                    self.Oyuncu.OyuncuY += 5
+                    self.Oyuncu.OyuncuX -= 5
+                else:
+                    self.Oyuncu.OyuncuY += 5
 
             elif self.Tus[pygame.K_w]:
-                self.Oyuncu.OyuncuY -= 5
+                if self.Tus[pygame.K_a]:
+                    self.Oyuncu.OyuncuY -= 5
+                    self.Oyuncu.OyuncuX -= 5
+                elif self.Tus[pygame.K_d]:
+                    self.Oyuncu.OyuncuY -= 5
+                    self.Oyuncu.OyuncuX += 5
+                else:
+                    self.Oyuncu.OyuncuY -= 5
 
             NesneOlustur(Nesneler, self.KIksirListesi, self.KIksirSayisi, self.KIksirResmi)
 
